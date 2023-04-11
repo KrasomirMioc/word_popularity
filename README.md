@@ -83,12 +83,12 @@ GET https://127.0.0.1:8000/api/v1/words/search?term={your word to search}
 
 > - create a new provider that will implement the existing search provider interface ```App\Interface\SearchProviderInterface.php```
 > - in ```service.yaml``` in interfaces section change the registration of the existing provider with a new one
-> ```yaml
+> ```diff
 > #interfaces
 > # change this line
-> App\Interface\SearchProviderInterface: '@App\Provider\GitHubProvider'
+> - App\Interface\SearchProviderInterface: '@App\Provider\GitHubProvider'
 > # with this line
-> App\Interface\SearchProviderInterface: '@App\Provider\{NewProvider}'
+> + App\Interface\SearchProviderInterface: '@App\Provider\{NewProvider}'
 > ```
 
 
