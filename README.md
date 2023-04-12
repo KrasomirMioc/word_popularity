@@ -37,7 +37,7 @@ instead of GitHub), so the system should be designed accordingly.
     symfony server:start
     ```
 
-## How to use API
+## How to use API v1
 
 Go to url and add your word to search:
 ```php
@@ -78,6 +78,128 @@ GET https://127.0.0.1:8000/api/v1/words/search?term={your word to search}
    "message": "HTTP/2 401  returned for \"https://api.github.com/search/issues?q={your word}"
 }
 ```
+
+## How to use API v2
+
+Go to url and add your word to search:
+```php
+GET https://127.0.0.1:8000/api/v2/words/search?term={your word to search}
+```
+- and for the search term *'php'* you will get:
+```json
+{
+   "data": {
+      "attributes": {
+         "score": 4.97,
+         "term": "php",
+         "positiveCount": 2706,
+         "negativeCount": 5450,
+         "totalCount": 5078100,
+         "source": "github",
+         "createdAt": "2023-04-11 18:28:46"
+      },
+      "data_resource_meta": null,
+      "id": "3",
+      "relationships": null,
+      "type": "word"
+   },
+   "meta": {},
+   "jsonapi": {
+      "version": "1.1"
+   }
+}
+```
+- for the search term *'javascript*' you will get:
+```json
+{
+   "data": {
+      "attributes": {
+         "score": 4.66,
+         "term": "javascript",
+         "positiveCount": 1886,
+         "negativeCount": 4047,
+         "totalCount": 4915713,
+         "source": "github",
+         "createdAt": "2023-04-11 19:21:20"
+      },
+      "data_resource_meta": null,
+      "id": "25",
+      "relationships": null,
+      "type": "word"
+   },
+   "meta": {},
+   "jsonapi": {
+      "version": "1.1"
+   }
+}
+```
+- if you search for a word *'maslačak*' you will get:
+```json
+{
+   "data": {
+      "attributes": {
+         "score": 0,
+         "term": "maslačak",
+         "positiveCount": 0,
+         "negativeCount": 0,
+         "totalCount": 2,
+         "source": "github",
+         "createdAt": "2023-04-11 23:38:13"
+      },
+      "data_resource_meta": null,
+      "id": "26",
+      "relationships": null,
+      "type": "word"
+   },
+   "meta": {},
+   "jsonapi": {
+      "version": "1.1"
+   }
+}
+```
+- if you **don't enter a search word**, you will get:
+```json
+{
+   "errors": [
+      {
+         "id": "c1051bb4-d103-4f74-8988-acbcafc7fdc3",
+         "links": null,
+         "status": "422",
+         "code": "c1051bb4-d103-4f74-8988-acbcafc7fdc3",
+         "title": "Parameter term must be present and can not be empty.",
+         "detail": null,
+         "source": null,
+         "meta": null
+      }
+   ],
+   "meta": {},
+   "jsonapi": {
+      "version": "1.1"
+   }
+}
+```
+- if you **omit GITHUB_TOKEN** and search for a **previously unsearched** word, you wil get:
+```json
+{
+   "errors": [
+      {
+         "id": null,
+         "links": null,
+         "status": "401",
+         "code": null,
+         "title": "HTTP/2 401  returned for \"https://api.github.com/search/issues?q=adonis%2Brocks\".",
+         "detail": "{... ful stack trace if in dev mode or null if not ...}",
+         "source": null,
+         "meta": null
+      }
+   ],
+   "meta": {},
+   "jsonapi": {
+      "version": "1.1"
+   }
+}
+```
+
 
 ### How to change search provider
 
