@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Word;
 use App\Interface\SearchProviderInterface;
 use App\Interface\WordRepositoryInterface;
 
@@ -15,7 +16,7 @@ class SearchTermService
     {
     }
 
-    public function getResult(string $term): ?float
+    public function getResult(string $term): ?Word
     {
         $providerName = $this->searchProvider->getProviderName();
         $word = $this->wordRepository->findOneByName($term, $providerName);
@@ -35,7 +36,7 @@ class SearchTermService
             ]);
         }
 
-        return $word?->getPopularityScore() ?? 0.00;
+        return $word;
     }
 
     private function calculatePopularity(array $counts): float

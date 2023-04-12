@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a2eb4b710a82c7eeda0fc3f95132a1e",
+    "content-hash": "ad394801aa2dcb0a04f6e022c107dde7",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1390,6 +1390,63 @@
                 "source": "https://github.com/doctrine/sql-formatter/tree/1.1.3"
             },
             "time": "2022-05-23T21:33:49+00:00"
+        },
+        {
+            "name": "floor9design/json-api-formatter",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/floor9design-ltd/json-api-formatter.git",
+                "reference": "1b9ec86cef811f2894116a059a631edb95fea703"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/floor9design-ltd/json-api-formatter/zipball/1b9ec86cef811f2894116a059a631edb95fea703",
+                "reference": "1b9ec86cef811f2894116a059a631edb95fea703",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "floor9design/testing-tools": "^1.3",
+                "mockery/mockery": "dev-master",
+                "phpstan/phpstan": "^1.0.0",
+                "phpunit/phpunit": "^10|^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Floor9design\\JsonApiFormatter\\": "src",
+                    "Floor9design\\JsonApiFormatter\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rick Morice",
+                    "email": "rick@floor9design.com",
+                    "homepage": "https://floor9design.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set classes that allow for creating JSON API compliant objects",
+            "homepage": "https://github.com/floor9design-ltd/json-api-formatter",
+            "keywords": [
+                "api",
+                "floor9design",
+                "jsonapi",
+                "rest"
+            ],
+            "support": {
+                "issues": "https://github.com/floor9design-ltd/json-api-formatter/issues",
+                "source": "https://github.com/floor9design-ltd/json-api-formatter/tree/1.3.1"
+            },
+            "time": "2023-02-25T19:09:55+00:00"
         },
         {
             "name": "friendsofsymfony/rest-bundle",

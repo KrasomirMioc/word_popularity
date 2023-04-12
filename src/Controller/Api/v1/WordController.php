@@ -46,7 +46,7 @@ class WordController extends AbstractController
         }
 
         try {
-            $popularityScore = $searchTermService->getResult($term);
+            $word = $searchTermService->getResult($term);
         } catch (\Exception $e) {
             return $this->json([
                 'status' => $e->getCode(),
@@ -56,7 +56,7 @@ class WordController extends AbstractController
 
         return $this->json([
             'term' => $term,
-            'score' => $popularityScore
+            'score' => $word->getPopularityScore()
         ], Response::HTTP_OK);
     }
 }

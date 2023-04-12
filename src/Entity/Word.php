@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\WordRepository;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ReflectionClass;
 
 #[ORM\Entity(repositoryClass: WordRepository::class)]
 class Word
@@ -33,7 +35,7 @@ class Word
     private ?float $total_count = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private \DateTimeInterface $created_at;
+    private DateTimeInterface $created_at;
 
     public function getId(): ?int
     {
@@ -125,18 +127,23 @@ class Word
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return DateTimeInterface
      */
-    public function getCreatedAt(): \DateTimeInterface
+    public function getCreatedAt(): DateTimeInterface
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTimeInterface $created_at
+     * @param DateTimeInterface $created_at
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): void
+    public function setCreatedAt(DateTimeInterface $created_at): void
     {
         $this->created_at = $created_at;
+    }
+
+    public function getClassName(): string
+    {
+        return strtolower((new ReflectionClass($this))->getShortName());
     }
 }
