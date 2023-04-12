@@ -81,6 +81,8 @@ GET https://127.0.0.1:8000/api/v1/words/search?term={your word to search}
 
 ## How to use API v2
 
+The difference between APIv1 and APIv2 is in the response. APIv2 returns responses according to the JSONAPI specification.
+
 Go to url and add your word to search:
 ```php
 GET https://127.0.0.1:8000/api/v2/words/search?term={your word to search}
