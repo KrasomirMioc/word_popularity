@@ -202,6 +202,16 @@ GET https://127.0.0.1:8000/api/v2/words/search?term={your word to search}
 }
 ```
 
+### How to use OPENAPI UI to test API
+
+To use OPENAPI UI go to:
+```php
+GET https://127.0.0.1:8000/api/doc
+```
+and there is two routes for you to test
+
+![OPENAPI UI routes](public/image/open_api_routes.jpg "OPENAPI UI routes")
+
 
 ### How to change search provider
 
