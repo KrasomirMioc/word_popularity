@@ -41,7 +41,7 @@ instead of GitHub), so the system should be designed accordingly.
 ------------
 ## Install instruction with docker
 
-- **require** installed last versions of *docker* and *docker-compose*
+- **require** installed and running last versions of *docker* and *docker-compose*
 
 
 - if you haven't done the first three steps so far
