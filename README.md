@@ -46,13 +46,13 @@ instead of GitHub), so the system should be designed accordingly.
 
 - if you haven't done the first three steps so far
 1. clone the repository
-    ```shell
-    git clone https://github.com/KrasomirMioc/word_popularity.git
-    ```
+   ```shell
+   git clone https://github.com/KrasomirMioc/word_popularity.git
+   ```
 2. copy .env to .env.local
-    ```shell
-    cp .env .env.local
-    ```
+   ```shell
+   cp .env .env.local
+   ```
 3. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
 4. build your containers with command
    ```shell
@@ -64,16 +64,16 @@ instead of GitHub), so the system should be designed accordingly.
    ```
 6. inside a container you can proceed with creating a database and db tables
 7. create database
-    ```shell
-    bin/console doctrine:database:create
-    ```
+   ```shell
+   bin/console doctrine:database:create
+   ```
 8. and db tables
    ```shell
    bin/console doctrine:migrations:migrate
    ```
 9. there is no need to start the server, because it's already up and running on
    ```php
-    localhost:8741
+   localhost:8741
    ```
 10. each subsequent time when you want start the app use command without ```--build``` flag
    ```shell
