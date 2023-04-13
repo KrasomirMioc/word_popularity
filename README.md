@@ -21,20 +21,24 @@ instead of GitHub), so the system should be designed accordingly.
     ```shell
     git clone https://github.com/KrasomirMioc/word_popularity.git
     ```
-2. copy .env to .env.local
+2. go to project directory
+    ```shell
+    cd word_popularity
+    ```
+3. copy .env to .env.local
     ```shell
     cp .env .env.local
     ```
-3. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
-4. create database
+4. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
+5. create database
     ```shell
     bin/console doctrine:database:create
     ```
-5. create database table
+6. create database table
     ```shell
     bin/console doctrine:migrations:migrate
     ```
-6. start server
+7. start server
     ```shell
     symfony server:start
     ```
@@ -44,39 +48,43 @@ instead of GitHub), so the system should be designed accordingly.
 - **require** installed and running last versions of *docker* and *docker-compose*
 
 
-- if you haven't done the first three steps so far
+- if you haven't done the first four steps so far
 
 1. clone the repository
    ```shell
    git clone https://github.com/KrasomirMioc/word_popularity.git
    ```
-2. copy .env to .env.local
+2. go to project directory
+    ```shell
+    cd word_popularity
+    ```
+3. copy .env to .env.local
    ```shell
    cp .env .env.local
    ```
-3. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
-4. build your containers with command
+4. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
+5. build your containers with command
    ```shell
    docker-compose up --build      #it might take a while
    ```
-5. when build is done, in another terminal open interactive bash shell session inside running container with command
+6. when build is done, in another terminal open interactive bash shell session inside running container with command
    ```shell
    docker exec -it word_popularity_www bash
    ```
-6. inside a container you can proceed with creating a database and db tables
-7. create database
+7. inside a container you can proceed with creating a database and db tables
+8. create database
    ```shell
    bin/console doctrine:database:create
    ```
-8. and db tables
+9. and db tables
    ```shell
    bin/console doctrine:migrations:migrate
    ```
-9. there is no need to start the server, because it's already up and running on
-   ```php
-   localhost:8741
-   ```
-10. each subsequent time when you want start the app use command without ```--build``` flag
+10. there is no need to start the server, because it's already up and running on
+    ```php
+    localhost:8741
+    ```
+11. each subsequent time when you want start the app use command without ```--build``` flag
    ```shell
    docker-compose up
    ```
