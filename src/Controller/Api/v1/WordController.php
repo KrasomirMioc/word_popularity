@@ -3,6 +3,7 @@
 namespace App\Controller\Api\v1;
 
 use App\Service\SearchTermService;
+use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +24,87 @@ class WordController extends AbstractController
     }
 
     #[Route('/search', name: 'search', methods: ['GET'])]
+    /**
+     * @OA\Get(
+     *     description="Get popularity score for searched word/term"
+     * )
+     * @OA\Response(
+     *     response="200",
+     *     description="Success",
+     *     content={
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="term",
+     *                      type="string",
+     *                      description="Searched word/term"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="score",
+     *                      type="float",
+     *                      description="Calculated word popularity"
+     *                  ),
+     *              )
+     *          )
+     *     }
+     * )
+     *
+     * @OA\Response(
+     *     response="401",
+     *     description="Unauthenticated. Token missing or not valid.",
+     *     content={
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="status",
+     *                      type="integer",
+     *                      description="HTTP Status code"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="message",
+     *                      type="string",
+     *                      description="Message from data provider."
+     *                  ),
+     *              )
+     *          )
+     *     }
+     * )
+     *
+     * @OA\Response(
+     *     response="422",
+     *     description="Validation error.",
+     *     content={
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="status",
+     *                      type="integer",
+     *                      description="HTTP Status code"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="message",
+     *                      type="string",
+     *                      description="Message from data provider."
+     *                  ),
+     *              )
+     *          )
+     *     }
+     * )
+     *
+     * @OA\Parameter(
+     *     name="term",
+     *     in="query",
+     *     required=false,
+     *     description="Term/word to search for",
+     *     @OA\Schema(type="string")
+     * )
+     *
+     * @OA\Tag(name="Search for word")
+     *
+     */
     public function searchAction(
         Request $request,
         ValidatorInterface $validator,

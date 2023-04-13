@@ -3,6 +3,7 @@
 namespace App\Controller\Api\v2;
 
 use App\Entity\Word;
+use Exception;
 use Floor9design\JsonApiFormatter\Exceptions\JsonApiFormatterException;
 use Floor9design\JsonApiFormatter\Models\DataResource;
 use Floor9design\JsonApiFormatter\Models\Error;
@@ -29,7 +30,7 @@ class BaseController extends AbstractController
             $jsonApiError->setTitle($errors[0]->getMessage());
         }
 
-        if ($errors instanceof \Exception) {
+        if ($errors instanceof Exception) {
             $jsonApiError->setStatus($errors->getCode());
             $jsonApiError->setTitle($errors->getMessage());
             $jsonApiError->setDetail(
@@ -64,7 +65,7 @@ class BaseController extends AbstractController
         return $jsonApiFormatter->dataResourceResponseArray($dataResource);
     }
 
-    public function getErrors(string $term, ValidatorInterface $validator): ConstraintViolationListInterface
+    public function getErrors(?string $term, ValidatorInterface $validator): ConstraintViolationListInterface
     {
         $termConstraint = new Assert\NotBlank();
         $termConstraint->message = 'Parameter term must be present and can not be empty.';
