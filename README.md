@@ -304,6 +304,24 @@ and there is two routes for you to test
 ![OPENAPI UI routes](public/image/open_api_routes.jpg "OPENAPI UI routes")
 
 -------------------
+## How to run test
+
+First make sure to set 
+```dotenv
+GITHUB_TOKEN= 
+```
+then use command to go into www container
+```shell
+docker exec -it word_popularity_www bash
+```
+and then run the test there 
+```shell
+php bin/phpunit
+```
+if everything went ok you should see 5 green tests and 26 assertions
+
+
+-------------------
 ## How to change search provider
 
 > - create a new "provider" class that will implement the existing search provider interface ```App\Interface\SearchProviderInterface.php```
