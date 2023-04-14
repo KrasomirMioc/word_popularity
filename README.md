@@ -306,7 +306,7 @@ and there is two routes for you to test
 -------------------
 ## How to run test
 
-First make sure to set 
+First make sure to set ```GITHUB_TOKEN``` into .env.test
 ```dotenv
 GITHUB_TOKEN= 
 ```
