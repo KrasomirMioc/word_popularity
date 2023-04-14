@@ -101,7 +101,7 @@ instead of GitHub), so the system should be designed accordingly.
 PhpMyAdmin is available on:
 
 ```php
-localhost:8000
+localhost:8080
 ```
 with user: root and without password
 
