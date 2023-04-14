@@ -76,5 +76,14 @@
             "allow-contrib": false,
             "require": "6.2.*"
         }
+    },
+    "require-dev": {
+        "mtdowling/jmespath.php": "^2.6",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "6.2.*",
+        "symfony/css-selector": "6.2.*",
+        "symfony/phpunit-bridge": "^6.2",
+        "zenstruck/browser": "^1.4",
+        "zenstruck/foundry": "^1.31"
     }
 }

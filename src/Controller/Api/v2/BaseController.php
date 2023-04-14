@@ -67,6 +67,7 @@ class BaseController extends AbstractController
 
     public function getErrors(?string $term, ValidatorInterface $validator): ConstraintViolationListInterface
     {
+        $term = $term ?: '';
         $termConstraint = new Assert\NotBlank();
         $termConstraint->message = 'Parameter term must be present and can not be empty.';
 
