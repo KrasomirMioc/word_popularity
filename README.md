@@ -30,6 +30,9 @@ instead of GitHub), so the system should be designed accordingly.
     cp .env .env.local
     ```
 4. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
+   ```dotenv
+   DATABASE_URL="mysql://root@127.0.0.1:3306/word_popularity?serverVersion=8&charset=utf8mb4"
+   ```
 5. create database
     ```shell
     bin/console doctrine:database:create
@@ -63,6 +66,9 @@ instead of GitHub), so the system should be designed accordingly.
    cp .env .env.local
    ```
 4. insert data into .env.local for DATABASE_URL and GITHUB_TOKEN keys
+   ```dotenv
+   DATABASE_URL="mysql://root@word_popularity_db:3306/word_popularity?serverVersion=8&charset=utf8mb4"
+   ```
 5. build your containers with command
    ```shell
    docker-compose up --build      #it might take a while
